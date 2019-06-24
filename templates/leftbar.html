@@ -1,0 +1,33 @@
+{% load static %}
+<div class="sidebar-nav">
+  <div class="nav-canvas">
+    <div class="nav-sm nav nav-stacked">
+    </div>
+    <ul class="nav nav-pills nav-stacked main-menu">
+      {% if user.is_login %}
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-plus"></i><span>帳號管理</span></a></li>
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-plus"></i><span>社團公告</span></a></li>
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-plus"></i><span>近期活動</span></a></li>
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-bullhorn"></i><span>訊息</span></a></li>
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-align-justify"></i><span>我的收藏</span></a></li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-align-justify"></i><span>新增活動</span></a></li>
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-comment"></i><span>已發布活動</span></a></li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-calendar"></i><span>社員清單</span></a></li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-calendar"></i><span>申請覆核</span></a></li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="#"><i class="glyphicon glyphicon-calendar"></i><span>職位變更</span></a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+{% extends 'base_form.html' %}
+{% load static %}
+{% block subtitle %}{{ subtitle }}{% endblock subtitle %}
+
+{% block routelinks %}
+<li><a href="{% url 'post_list' %}">{{ title }}</a></li>
+<li><a href="{% url 'post_list' %}">{{ subtitle }}</a></li>
+<li>{{ mypost.title }}</li>
+{% endblock routelinks %}
+
+{% block function_btn %}
+<a class="btn btn-info btn-sm" href="{% url 'post_new' %}"><i class="glyphicon glyphicon-plus"></i>新增</a>
+<a class="btn btn-info btn-sm" href="{% url 'post_edit' pk=mypost.pk%}"><i class="glyphicon glyphicon-plus"></i>編輯</a>
+<a class="btn btn-info btn-sm" href="{% url 'post_delete' pk=mypost.pk %}"><i class="glyphicon glyphicon-plus"></i>刪除</a>
+{% endblock function_btn %}
+
+{% block mainhead %}社團公告內容{% endblock mainhead %}
+
+{% block formbody %}
+  <div class="row">
+    <div class="col-md-1">
+      <label for="">標題</label>
+    </div>
+    <div class="col-md-3">
+        {{mypost.title}}
+    </div>
+    <div class="col-md-1">
+      <label for="">發布人</label>
+    </div>
+    <div class="col-md-2">
+      {{mypost.author}}
+    </div>
+    <div class="col-md-2">
+      <label for="">發布時間</label>
+    </div>
+    <div class="col-md-3">
+      {{mypost.timestamp}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <label for="">社團</label>
+    </div>
+    <div class="col-md-6">
+      {{mypost.club}}
+    </div>
+
+    <div class="col-md-2">
+      <label for="">到期日</label>
+    </div>
+    <div class="col-md-3">
+      {{mypost.due}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <label for="">內容</label>
+    </div>
+    <div class="col-md-11">
+      {{mypost.contents}}
+    </div>
+  </div>
+{% endblock formbody %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+社團管理||登入
+{% endblock title %}
+
+{% block style %}
+{% include 'style.html' %}
+{% endblock style %}
+
+{% block mainbody %}
+<body background="{% static 'img/p3.jpg' %}"></body>
+<div class="ch-container">
+  <div class="row">
+    <div class="row">
+      <div class="col-md-12 center login-header">
+        <h2>
+          <font color="black">歡迎使用社團活動系統</font>
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="well col-md-5 center login-box">
+        <div class="alert alert-info">
+          請輸入帳號及密碼
+        </div>
+        {% include 'loginform.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock mainbody %}

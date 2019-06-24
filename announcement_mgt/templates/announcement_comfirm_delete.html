@@ -1,0 +1,22 @@
+{% extends 'base_form.html' %}
+{% load static %}
+{% block subtitle %}{{ subtitle }}{% endblock subtitle %}
+
+{% block routelinks %}
+<li><a href="{% url 'post_list' %}">{{ title }}</a></li>
+<li><a href="{% url 'post_list' %}">{{ subtitle }}</a></li>
+<li>{{ object.title }}</li>
+{% endblock routelinks %}
+
+{% block mainhead %}刪除社團公告{% endblock mainhead %}
+
+{% block formbody %}
+<form method="post">{% csrf_token %}
+    <p>是否確定要刪除 {{ object.club }} 的公告:?</p>
+    <pre>標題：{{ object.title }}</pre>
+    <pre>內文：{{object.contents}}</pre>
+    <button type="cancel"  name="cancel" value="cancel" class="btn btn-cancel">取消</button>
+    <button type="submit"  name="button" value="submit" class="btn btn-danger">確認刪除</button>
+</form>
+<pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>
+{% endblock formbody %}

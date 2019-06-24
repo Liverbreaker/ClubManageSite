@@ -1,0 +1,22 @@
+{% extends 'base_form_clean_4.html' %}
+{% load static %}
+
+{% block subtitle %}{{ subtitle }}{% endblock subtitle %}
+
+{% block mainhead %}註冊新帳號{% endblock mainhead %}
+
+{% block formbody %}
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" name="button">提交</button>
+</form>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock formbody %}

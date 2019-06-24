@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+輔大社團中心||註冊新帳號
+{% endblock title %}
+
+{% block style %}
+{% include 'style.html' %}
+{% endblock style %}
+
+{% block mainbody %}
+<body background="{% static 'img/p3.jpg' %}"></body>
+<div class="ch-container">
+  <div class="row">
+    <div class="row">
+      <div class="col-md-12 center login-header">
+        <h2>
+          <font color="black">輔大社團中心</font>
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="well col-md-5 center login-box">
+        <div class="alert alert-info">
+          {{myalert}}
+        </div>
+        <a href="{% url 'login' %}"><button type="button" name="button">登入</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock mainbody %}

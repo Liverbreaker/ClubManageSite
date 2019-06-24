@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block basestyle %}{% endblock basestyle %}
+
+{% block title %}
+社團管理||{% block subtitle %}{% endblock subtitle %}
+{% endblock title %}
+
+{% block mainbody %}
+<div class="ch-container">
+  <div class="row">
+    <div class="col-sm-2 col-lg-2">
+      {% include 'leftbar.html' %}
+    </div>
+    <div id="content" class="col-lg-10 col-sm-10">
+      <div>
+        <ul class="breadcrumb">
+          {% block routelinks %}{% endblock routelinks %}
+        </ul>
+        {% block function_btn %}{% endblock function_btn %}
+      </div>
+      {% block bodycontent %}
+      {% endblock bodycontent %}
+    </div>
+  </div>
+</div>
+{% endblock mainbody%}

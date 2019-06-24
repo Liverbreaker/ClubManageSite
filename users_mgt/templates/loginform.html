@@ -1,0 +1,36 @@
+<form class="form-horizontal" action="{% url 'login' %}" method="post">{% csrf_token %}
+  <fieldset>
+    {% if form.username.errors %}<li>{{form.username.errors}}</li>{%endif%}
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+      <input type="text" class="form-control" placeholder="帳號" name='username' id='id_username'>
+    </div>
+    <div class="clearfix"></div><br>
+    {% if form.password.errors%}<li>{{form.password.errors}}</li>{%endif%}
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+      <input type="password" class="form-control" style="::placeholder{color:black};:-ms-input-placeholder{color:black};::-ms-input-placeholder{color:black}" placeholder="密碼" name="password" id="id_password">
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="input-prepend">
+      <input type="checkbox" id="remember"><label class="remember" for="remember">Remember me</label>
+    </div>
+    <div class="clearfix"></div>
+    尚未註冊帳號?&nbsp;
+    <a href="{% url 'signup' %}"><u>申請學生帳號</u></a>
+
+    <p class="center col-md-5">
+      <button class="btn btn-primary" type="submit">
+        <font color="white">登入</font>
+      </button>
+    </p>
+  </fieldset>
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+</form>

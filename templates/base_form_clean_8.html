@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block basestyle %}{% endblock basestyle %}
+{% block mainbody %}
+<div class="row">
+  <div class="box col-md-8 center">
+    <div class="box-inner">
+      <div class="box-content">
+        {% block formbody %}{% endblock formbody %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock mainbody %}

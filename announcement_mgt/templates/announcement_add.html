@@ -1,0 +1,38 @@
+{% extends 'base_form.html' %}
+{% load static %}
+{% block basestyle %}
+<!-- XDSoft DateTimePicker -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+{% endblock basestyle %}
+{% block subtitle %}{{ subtitle }}{% endblock subtitle %}
+
+{% block routelinks %}
+<li><a href="{% url 'post_list' %}">{{ title }}</a></li>
+<li><a href="{% url 'post_list' %}">{{ subtitle }}</a></li>
+<li><a href="{% url 'post_new' %}">{{ subtitle_sub }}</a></li>
+{% endblock routelinks %}
+
+{% block function_btn %}
+<!-- <a class="btn btn-info btn-sm" href="#"><i class="glyphicon glyphicon-plus"></i>@@</a> -->
+<!-- <a class="btn btn-info btn-sm" href="#">{{ club }}</a> -->
+{% endblock function_btn %}
+
+{% block mainhead %}新增社團公告{% endblock mainhead %}
+
+{% block formbody %}
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" value="submit" class="btn btn-danger" name="button">提交</button>
+  <button type="cancel" value="cancel" class="btn btn-cancel" name="button">取消</button>
+</form>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock formbody %}

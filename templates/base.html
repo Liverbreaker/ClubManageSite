@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="utf8">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %} {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include 'JsCssPack.html' %}
+  {% include 'style.html' %}
+  {% block basestyle %}{% endblock basestyle %}
+</head>
+<body>
+<div class="navbar navbar-default" role="navigation">
+  {% include 'navbar.html' %}
+</div>
+{% block mainbody %}
+{% endblock mainbody %}
+</body>
+{% include 'externaljs.html' %}
+</html>
