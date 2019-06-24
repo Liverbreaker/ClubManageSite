@@ -1,0 +1,38 @@
+{% load static %}
+{% load temptags %}
+<div class="sidebar-nav">
+  <div class="nav-canvas">
+    <ul class="nav nav-pills nav-stacked main-menu">
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="{% url 'admin' %}"><i class="glyphicon glyphicon-plus"></i><span>帳號管理</span></a></li>
+      <li><a class="ajax-link" href="{% url 'post_list' %}"><i class="glyphicon glyphicon-plus"></i><span>社團公告</span></a></li>
+      <li><a class="ajax-link" href="{% url 'activity-list' %}"><i class="glyphicon glyphicon-plus"></i><span>近期活動</span></a></li>
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-bullhorn"></i><span>訊息</span></a></li>
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-align-justify"></i><span>我的收藏</span></a></li>
+      {% endif %}
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-align-justify"></i><span>新增活動</span></a></li>
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-comment"></i><span>已發布活動</span></a></li>
+      {% endif %}
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-calendar"></i><span>社員清單</span></a></li>
+      {% endif %}
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-calendar"></i><span>申請覆核</span></a></li>
+      {% endif %}
+      {% if user.is_authenticated %}
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-calendar"></i><span>職位變更</span></a></li>
+      {% endif %}
+
+      <!-- full -->
+      {% if request.user|has_group:"admin" %}
+      <li><a class="ajax-link" href="{% url 'post_list' %}"><i class="glyphicon glyphicon-calendar"></i><span>社團-公告管理</span></a></li>
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-calendar"></i><span>活動-管理</span></a></li>
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-calendar"></i><span>活動-報名表管理</span></a></li>
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-calendar"></i><span>社團-管理</span></a></li>
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-calendar"></i><span>社團-學生入退社</span></a></li>
+      <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-calendar"></i><span>社團-學生入退社申請書管理</span></a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

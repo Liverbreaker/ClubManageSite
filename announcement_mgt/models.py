@@ -24,7 +24,7 @@ class Announcement(models.Model):
     author = models.ForeignKey(
         CustomUser, verbose_name="發布人", on_delete=models.CASCADE)
     title = models.CharField(verbose_name="標題", max_length=100)
-    contents = RichTextField(verbose_name="內文", )
+    contents = RichTextField(verbose_name="內文" )
     # clips = models.FileField(upload_to=fs)
     # https://stackoverflow.com/questions/39576174/save-base64-image-in-django-file-field
     due = models.DateTimeField(verbose_name="到期日", default=days_from_now(60))

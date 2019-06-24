@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import (LoginView, LogoutView, IndexView, LogoutRedirectView, TestAuthView)
 
+# "/"
+
 urlpatterns = [
     path('', IndexView.as_view(), name="index"),
     path('login/', LoginView.as_view(), name="login"),

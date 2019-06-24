@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %} {% endblock %}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
   {% include 'JsCssPack.html' %}
   {% include 'style.html' %}
   {% block basestyle %}{% endblock basestyle %}

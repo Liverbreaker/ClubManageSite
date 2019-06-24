@@ -1,0 +1,50 @@
+{% extends 'base_table.html' %}
+{% load static %}
+
+{% block style %}
+<style>
+    .pointer { cursor: pointer; }
+</style>
+{% endblock style %}
+
+
+{% block subtitle %}{{ subtitle }}{% endblock subtitle %}
+
+{% block routelinks %}
+<li><a href="{% url 'post_list' %}">{{ title }}</a></li>
+<li><a href="{% url 'post_list' %}">{{ subtitle }}</a></li>
+{% endblock routelinks %}
+
+{% block function_btn %}
+<a class="btn btn-info btn-sm" href="{% url 'post_new' %}"><i class="glyphicon glyphicon-plus"></i>新增公告</a>
+{% endblock function_btn %}
+
+{% block table_mainhead %}{{ subtitle }}{% endblock table_mainhead %}
+
+{% block thead %}
+<tr>
+  <th scope="col">開始日期</th>
+  <th scope="col">結束日期</th>
+  <th scope="col">活動名稱</th>
+  <th scope="col">報名截止日</th>
+  <th scope="col">主辦社團</th>
+  <th scope="col">活動地點</th>
+</tr>
+{% endblock thead %}
+
+{% block tbody %}
+{% for row in act_list %}
+<tr class="pointer" onclick="document.location = '{% url 'post_detail' pk=row.pk %}';">
+  <td>{{row.begin}}</td>
+  <td>{{row.end}}</td>
+  <td>{{row.name}}</td>
+  <td>{{row.deadline}}</td>
+  <td>{{row.club}}</td>
+  <td>{{row.site}}</td>
+</tr>
+{% empty %}
+<tr class="pointer">
+  <td colspan="4">沒有公告...</td>
+</tr>
+{% endfor%}
+{% endblock tbody %}

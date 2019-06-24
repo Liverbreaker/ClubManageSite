@@ -21,13 +21,20 @@ def create_profile(sender, instance, created, **kwargs):
         elif instance.user_type == "CENTERMEMBER":
             CenterMember.objects.create(
                 user=instance, nickname=instance.get_full_name(), position="社團中心成員")
+            try:
+                new_club, created = Club.objects.get_or_create(name="社團中心")
+                if created:
+                    new_club.name_eng = "Club Manage Center"
+                    new_club.save()
+                    generate_club()
+            except Club.DoesNotExist:
+                raise ValueError('Club does not exist, pass by users_mgt/signals.py')
             Member.objects.create(user=instance,
-                                  club=Club.objects.get(name="社團中心"),
+                                  club=new_club,
                                   is_manage=True,
                                   position="社團中心老師",
                                   club_enterday=timezone.now()
                                   )
-            # instance.CenterMember.save()
         else:
             raise ValueError(
                 'UserManager error, create user with empty user_type.')

@@ -1,0 +1,18 @@
+
+
+views.py>>
+
+user ==> self.request.user
+
+call models.Club_apply:
+    fields: {
+        student: FK: Student.objects.get(user=user)
+        club: queryset: Club.objects.all()// Club.objects.filter(is_activate=True)
+        in_out: choices field
+        reason: char
+        text1~bool2 empty is ok
+        is_perm: false
+    }
+
+
+all super() check!!

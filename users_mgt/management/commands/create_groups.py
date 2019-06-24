@@ -10,35 +10,35 @@ from django.contrib.auth.models import Permission
 PERM = {
     "admin": {
         'announcement_mgt.announcement':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'activity_mgt.activity':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'activity_mgt.activity_join':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'club_mgt.member':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.member_quit':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club_apply':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club_apply_permit':
-            ('view', 'add', 'edit', 'delete')
+            ('view', 'add', 'change', 'delete')
     },
     "centermember": {
         'announcement_mgt.announcement':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'activity_mgt.activity':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'activity_mgt.activity_join':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'club_mgt.member':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.member_quit':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club_apply':
             ('view'),
         'club_mgt.club_apply_permit':
@@ -46,21 +46,21 @@ PERM = {
     },
     "teacher-mgt": {
         'announcement_mgt.announcement':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'activity_mgt.activity':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'activity_mgt.activity_join':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club':
-            ('view', 'edit', 'close'),
+            ('view', 'change', 'close'),
         'club_mgt.member':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.member_quit':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club_apply':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club_apply_permit':
-            ('view', 'add', 'edit', 'delete')
+            ('view', 'add', 'change', 'delete')
     },
     "teacher-norm": {
         'announcement_mgt.announcement':
@@ -68,7 +68,7 @@ PERM = {
         'activity_mgt.activity':
             ('view'),
         'activity_mgt.activity_join':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club':
             ('view'),
         'club_mgt.member':
@@ -78,21 +78,21 @@ PERM = {
     },
     "student-mgt": {
         'announcement_mgt.announcement':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'activity_mgt.activity':
-            ('view', 'add', 'edit', 'close', 'delete'),
+            ('view', 'add', 'change', 'close', 'delete'),
         'activity_mgt.activity_join':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club':
-            ('view', 'edit'),
+            ('view', 'change'),
         'club_mgt.member':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.member_quit':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club_apply':
-            ('view', 'add', 'edit', 'delete'),
+            ('view', 'add', 'change', 'delete'),
         'club_mgt.club_apply_permit':
-            ('view', 'add', 'edit', 'delete')
+            ('view', 'add', 'change', 'delete')
     },
     "student-norm": {
         'announcement_mgt.announcement':
@@ -100,7 +100,7 @@ PERM = {
             'activity_mgt.activity':
                 ('view'),
             'activity_mgt.activity_join':
-                ('view', 'add', 'edit', 'delete'),
+                ('view', 'add', 'change', 'delete'),
             'club_mgt.club':
                 ('view'),
             'club_mgt.member':
@@ -108,7 +108,7 @@ PERM = {
             'club_mgt.member_quit':
                 ('view'),
             'club_mgt.club_apply':
-                ('view', 'add', 'edit', 'delete'),
+                ('view', 'add', 'change', 'delete'),
             'club_mgt.club_apply_permit':
                 ('view')
     }
@@ -117,9 +117,7 @@ PERM = {
 
 class Command(BaseCommand):
     help = 'Creates read only default permission groups for users'
-
     def handle(self, *args, **options):
-
         for group in PERM:
             new_group, created = Group.objects.get_or_create(name=group)
             for amodel in PERM[group]:

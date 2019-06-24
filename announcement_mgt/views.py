@@ -19,6 +19,7 @@ from club_mgt.models import Member, Club
 from announcement_mgt.models import days_from_now
 
 class AnnouncementListView(LoginRequiredMixin, ListView):
+    '''公告清單'''
     template_name = 'announcement_list.html'
     model = Announcement
     # context_object_name = 'announcement_list'
@@ -33,6 +34,7 @@ class AnnouncementListView(LoginRequiredMixin, ListView):
         return context
 
 class AnnouncementCreateView(LoginRequiredMixin, CreateView):
+    '''公告新建'''
     template_name = 'announcement_add.html'
     form_class = AnnouncementForm
 
@@ -65,6 +67,7 @@ class AnnouncementCreateView(LoginRequiredMixin, CreateView):
 
 
 class AnnouncementDetailView(LoginRequiredMixin, DetailView):
+    '''公告內容'''
     template_name = 'announcement_detail.html'
     model = Announcement
 
@@ -80,6 +83,7 @@ class AnnouncementDetailView(LoginRequiredMixin, DetailView):
 
 
 class AnnouncementEditView(LoginRequiredMixin, UpdateView):
+    '''公告編輯'''
     template_name = 'announcement_edit.html'
     model = Announcement
     form_class = AnnouncementForm
@@ -113,6 +117,7 @@ class AnnouncementEditView(LoginRequiredMixin, UpdateView):
 
 
 class AnnouncementDeleteView(LoginRequiredMixin, DeleteView):
+    '''公告刪除'''
     template_name = 'announcement_comfirm_delete.html'
     model = Announcement
     success_url = reverse_lazy('post_list')
